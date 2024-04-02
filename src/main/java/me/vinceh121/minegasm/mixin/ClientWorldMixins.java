@@ -35,8 +35,8 @@ public class ClientWorldMixins {
 		ClientEventHandler.onWorldExit(entity);
 	}
 
-	@Inject(at = @At("HEAD"), method = "addEntityPrivate")
-	public void onEntityAdded(int id, Entity entity, CallbackInfo ci) {
+	@Inject(at = @At("HEAD"), method = "addEntity")
+	public void onEntityAdded(Entity entity, CallbackInfo ci) {
 		ClientEventHandler.onWorldEntry(entity);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import net.minecraft.client.session.Session;
 import org.apache.logging.log4j.LogManager;
 
 import com.mojang.authlib.GameProfile;
@@ -200,7 +201,7 @@ public class ClientEventHandler {
 	}
 
 	private static void populatePlayerInfo() {
-		GameProfile profile = MinecraftClient.getInstance().getSession().getProfile();
+		Session.AccountType profile = MinecraftClient.getInstance().getSession().getAccountType();
 		playerName = profile.getName();
 		LOGGER.info("Current player: " + playerName + " " + getPlayerId());
 	}
